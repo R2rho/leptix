@@ -24,6 +24,7 @@ wasm-bindgen = "=0.2.92"
 web-sys = { version = "0.3.65", features = ["CustomEventInit", "EventInit"] }
 
 [features]
+islands=[]
 csr = ["leptos/csr"]
 ssr = ["leptos/ssr", "leptos-use/ssr"]
 hydrate = ["leptos/hydrate"]

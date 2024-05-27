@@ -24,7 +24,8 @@ struct SwitchContextValue {
   disabled: Signal<bool>,
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub fn SwitchRoot(
   #[prop(optional)] checked: Option<MaybeSignal<bool>>,
   #[prop(optional)] value: Option<MaybeSignal<String>>,
@@ -145,7 +146,8 @@ pub fn SwitchRoot(
   }
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub fn SwitchThumb(
   #[prop(attrs)] attrs: Attributes,
   #[prop(optional)] node_ref: NodeRef<AnyElement>,
@@ -183,7 +185,8 @@ pub fn SwitchThumb(
   }
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub fn BubbleInput(
   checked: Signal<bool>,
   bubbles: Signal<bool>,

@@ -21,7 +21,8 @@ struct CollapsibleContextValue {
   on_open_toggle: Callback<()>,
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub fn CollapsibleRoot(
   #[prop(optional)] open: Option<MaybeSignal<bool>>,
   #[prop(optional)] default_open: Option<MaybeSignal<bool>>,
@@ -84,7 +85,8 @@ pub fn CollapsibleRoot(
   }
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub fn CollapsibleTrigger(
   #[prop(optional)] as_child: Option<bool>,
   #[prop(optional)] node_ref: NodeRef<AnyElement>,
@@ -138,7 +140,8 @@ pub fn CollapsibleTrigger(
   }
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub fn CollapsibleContent(
   #[prop(optional)] force_mount: Option<MaybeSignal<bool>>,
   #[prop(optional)] as_child: Option<bool>,
@@ -173,7 +176,8 @@ pub fn CollapsibleContent(
   }
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 fn CollapsibleContentImpl(
   as_child: Option<bool>,
   #[prop(attrs)] attrs: Attributes,

@@ -67,7 +67,8 @@ pub struct ScrollAreaContextValue {
   on_corner_height_change: Callback<u32>,
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub fn ScrollAreaRoot(
   #[prop(optional)] kind: MaybeSignal<ScrollAreaKind>,
   #[prop(optional)] direction: Option<MaybeSignal<Direction>>,
@@ -155,7 +156,8 @@ pub fn ScrollAreaRoot(
   }
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub fn ScrollAreaViewport(
   #[prop(optional)] nonce: Option<MaybeSignal<String>>,
 
@@ -243,7 +245,8 @@ pub fn ScrollAreaViewport(
 
 pub struct ForceMount;
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub fn ScrollAreaScrollbar(
   #[prop(optional)] force_mount: Option<ForceMount>,
   #[prop(optional)] orientation: MaybeSignal<Orientation>,
@@ -328,7 +331,8 @@ pub fn ScrollAreaScrollbar(
   }
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 fn ScrollAreaScrollbarHover(
   force_mount: MaybeSignal<bool>,
   orientation: MaybeSignal<Orientation>,
@@ -404,7 +408,8 @@ fn ScrollAreaScrollbarHover(
   }
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 fn ScrollAreaScrollbarScroll(
   force_mount: MaybeSignal<bool>,
   orientation: MaybeSignal<Orientation>,
@@ -515,7 +520,8 @@ fn ScrollAreaScrollbarScroll(
   }
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 fn ScrollAreaScrollbarAuto(
   force_mount: MaybeSignal<bool>,
   orientation: MaybeSignal<Orientation>,
@@ -581,7 +587,8 @@ fn ScrollAreaScrollbarAuto(
   }
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 fn ScrollAreaScrollbarVisible(
   orientation: MaybeSignal<Orientation>,
   #[prop(optional)] on_pointer_enter: Option<Callback<()>>,
@@ -708,7 +715,8 @@ fn ScrollAreaScrollbarVisible(
   }
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 fn ScrollAreaScrollbarX(
   #[prop(optional_no_strip)] on_pointer_enter: Option<Callback<()>>,
   #[prop(optional_no_strip)] on_pointer_leave: Option<Callback<()>>,
@@ -830,7 +838,8 @@ fn ScrollAreaScrollbarX(
   }
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 fn ScrollAreaScrollbarY(
   #[prop(optional_no_strip)] on_pointer_enter: Option<Callback<()>>,
   #[prop(optional_no_strip)] on_pointer_leave: Option<Callback<()>>,
@@ -964,7 +973,8 @@ struct Pointer {
   y: f64,
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 fn ScrollAreaScrollbarImpl(
   sizes: Signal<Sizes>,
 
@@ -1156,7 +1166,8 @@ fn ScrollAreaScrollbarImpl(
   }
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub fn ScrollAreaThumb(
   #[prop(optional)] force_mount: Option<MaybeSignal<bool>>,
   #[prop(optional)] as_child: Option<bool>,
@@ -1186,7 +1197,8 @@ pub fn ScrollAreaThumb(
   }
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 fn ScrollAreaThumbImpl(
   as_child: Option<bool>,
   #[prop(attrs)] attrs: Attributes,
@@ -1284,7 +1296,8 @@ fn ScrollAreaThumbImpl(
   }
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub fn ScrollAreaCorner(
   #[prop(attrs)] attrs: Attributes,
   #[prop(optional)] node_ref: NodeRef<AnyElement>,

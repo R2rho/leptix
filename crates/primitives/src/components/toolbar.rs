@@ -21,7 +21,8 @@ struct ToolbarContextValue {
   direction: Signal<Direction>,
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub fn ToolbarRoot(
   #[prop(optional)] orientation: Option<MaybeSignal<Orientation>>,
   #[prop(optional)] direction: Option<MaybeSignal<Direction>>,
@@ -86,7 +87,8 @@ pub fn ToolbarRoot(
   }
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub fn ToolbarSeparator(
   #[prop(optional)] orientation: Option<MaybeSignal<Orientation>>,
   #[prop(optional)] decorative: Option<MaybeSignal<bool>>,
@@ -110,7 +112,8 @@ pub fn ToolbarSeparator(
   }
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub fn ToolbarButton(
   #[prop(optional)] as_child: Option<bool>,
   #[prop(optional)] disabled: Option<MaybeSignal<bool>>,
@@ -138,7 +141,8 @@ pub fn ToolbarButton(
   }
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub fn ToolbarLink(
   #[prop(optional)] on_key_down: Option<Callback<KeyboardEvent>>,
   #[prop(attrs)] attrs: Attributes,
@@ -174,7 +178,8 @@ pub fn ToolbarLink(
   }
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub fn ToolbarToggleGroup(
   kind: ToggleGroupKind,
 
@@ -215,7 +220,8 @@ pub fn ToolbarToggleGroup(
   }
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub fn ToolbarToggleItem(
   #[prop(optional)] disabled: Option<MaybeSignal<bool>>,
   value: MaybeSignal<String>,

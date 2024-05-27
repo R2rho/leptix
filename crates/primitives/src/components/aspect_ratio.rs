@@ -2,7 +2,8 @@ use leptos::{html::AnyElement, *};
 
 use crate::{components::primitive::Primitive, Attributes};
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub fn AspectRatioRoot(
   ratio: MaybeSignal<f32>,
   children: Children,

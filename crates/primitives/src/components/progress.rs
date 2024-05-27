@@ -10,7 +10,8 @@ struct ProgressContextValue {
   max: Signal<u32>,
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub fn ProgressRoot(
   #[prop(optional)] value: Option<MaybeSignal<u32>>,
   #[prop(optional)] max: Option<MaybeSignal<u32>>,
@@ -89,7 +90,8 @@ pub fn ProgressRoot(
   }
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub fn ProgressIndicator(
   #[prop(optional)] node_ref: NodeRef<AnyElement>,
   #[prop(attrs)] attrs: Attributes,

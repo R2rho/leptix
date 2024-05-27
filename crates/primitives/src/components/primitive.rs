@@ -5,7 +5,8 @@ use leptos::{
 
 use crate::Attributes;
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub fn Primitive<El: ElementDescriptor + 'static>(
   element: fn() -> HtmlElement<El>,
   children: Children,

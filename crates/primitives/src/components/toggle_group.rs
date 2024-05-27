@@ -26,7 +26,8 @@ pub enum ToggleGroupKind {
   },
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub fn ToggleGroupRoot(
   kind: ToggleGroupKind,
 
@@ -98,7 +99,8 @@ struct ToggleGroupValueContextValue {
   on_item_deactivate: Callback<String>,
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 fn ToggleGroupSingle(
   #[prop(optional_no_strip)] disabled: Option<MaybeSignal<bool>>,
   #[prop(optional_no_strip)] roving_focus: Option<MaybeSignal<bool>>,
@@ -154,7 +156,8 @@ fn ToggleGroupSingle(
   }
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 fn ToggleGroupMultiple(
   #[prop(optional_no_strip)] disabled: Option<MaybeSignal<bool>>,
   #[prop(optional_no_strip)] roving_focus: Option<MaybeSignal<bool>>,
@@ -233,7 +236,8 @@ struct ToggleGroupStateContextValue {
   roving_focus: Signal<bool>,
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 fn ToggleGroup(
   #[prop(optional_no_strip)] disabled: Option<MaybeSignal<bool>>,
   #[prop(optional_no_strip)] roving_focus: Option<MaybeSignal<bool>>,
@@ -298,7 +302,8 @@ fn ToggleGroup(
   }
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub fn ToggleGroupItem(
   #[prop(optional)] disabled: Option<MaybeSignal<bool>>,
   value: MaybeSignal<String>,

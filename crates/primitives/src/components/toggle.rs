@@ -7,7 +7,8 @@ use crate::{
   Attributes,
 };
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub fn ToggleRoot(
   #[prop(optional)] pressed: Option<MaybeSignal<bool>>,
   #[prop(optional)] disabled: Option<MaybeSignal<bool>>,

@@ -52,7 +52,8 @@ struct RovingContextValue {
   on_focusable_item_remove: Callback<()>,
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub(crate) fn RovingFocusGroup(
   #[prop(optional)] as_child: Option<bool>,
   #[prop(optional)] orientation: Option<MaybeSignal<Orientation>>,
@@ -234,7 +235,8 @@ pub(crate) fn RovingFocusGroup(
   }
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub(crate) fn RovingFocusGroupItem(
   #[prop(optional)] as_child: Option<bool>,
   #[prop(optional)] tab_stop_id: Option<MaybeSignal<String>>,

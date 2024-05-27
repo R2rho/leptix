@@ -24,7 +24,8 @@ struct RadioGroupContextValue {
   on_value_change: Callback<String>,
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub fn RadioGroupRoot(
   #[prop(optional)] name: Option<MaybeSignal<String>>,
   #[prop(optional)] required: Option<MaybeSignal<bool>>,
@@ -115,7 +116,8 @@ pub fn RadioGroupRoot(
   }
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub fn RadioGroupItem(
   value: MaybeSignal<String>,
   #[prop(optional)] on_focus: Option<Callback<FocusEvent>>,
@@ -215,7 +217,8 @@ pub fn RadioGroupItem(
   }
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub fn RadioGroupIndicator(
   #[prop(optional)] node_ref: NodeRef<AnyElement>,
   #[prop(attrs)] attrs: Attributes,

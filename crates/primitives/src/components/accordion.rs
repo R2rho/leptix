@@ -47,7 +47,9 @@ struct AccordionCollapsibleContextValue {
   collapsible: Signal<bool>,
 }
 
-#[component]
+
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub fn AccordionRoot(
   kind: AccordionKind,
   #[prop(attrs)] attrs: Attributes,
@@ -97,7 +99,9 @@ pub fn AccordionRoot(
   }
 }
 
-#[component]
+
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 fn AccordionSingle(
   #[prop(optional_no_strip)] value: Option<MaybeSignal<String>>,
   #[prop(optional_no_strip)] default_value: Option<MaybeSignal<String>>,
@@ -158,7 +162,9 @@ fn AccordionSingle(
   }
 }
 
-#[component]
+
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 fn AccordionMultiple(
   #[prop(optional_no_strip)] value: Option<MaybeSignal<Vec<String>>>,
   #[prop(optional_no_strip)] default_value: Option<MaybeSignal<Vec<String>>>,
@@ -235,7 +241,8 @@ struct AccordionStateContextValue {
 #[derive(Clone, Debug, PartialEq, PartialOrd, Eq, Ord)]
 struct AccordionCollectionItem;
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 fn Accordion(
   #[prop(optional)] disabled: Option<MaybeSignal<bool>>,
   #[prop(optional)] orientation: Option<MaybeSignal<Orientation>>,
@@ -396,7 +403,8 @@ struct AccordionItemContextValue {
   trigger_id: Signal<String>,
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub fn AccordionItem(
   #[prop(optional)] disabled: Option<MaybeSignal<bool>>,
   value: MaybeSignal<String>,
@@ -461,7 +469,8 @@ pub fn AccordionItem(
   }
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub fn AccordionHeader(
   #[prop(attrs)] attrs: Attributes,
   #[prop(optional)] node_ref: NodeRef<AnyElement>,
@@ -507,7 +516,8 @@ pub fn AccordionHeader(
   }
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub fn AccordionTrigger(
   #[prop(attrs)] attrs: Attributes,
   #[prop(optional)] node_ref: NodeRef<AnyElement>,
@@ -548,7 +558,8 @@ pub fn AccordionTrigger(
   }
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub fn AccordionContent(
   #[prop(attrs)] attrs: Attributes,
   #[prop(optional)] node_ref: NodeRef<AnyElement>,

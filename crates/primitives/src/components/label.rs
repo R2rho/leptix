@@ -3,7 +3,8 @@ use web_sys::MouseEvent;
 
 use crate::{components::primitive::Primitive, Attributes};
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub fn LabelRoot(
   #[prop(attrs)] attrs: Attributes,
   children: Children,

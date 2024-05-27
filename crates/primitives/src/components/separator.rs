@@ -2,7 +2,8 @@ use leptos::{html::AnyElement, *};
 
 use crate::{components::primitive::Primitive, util::Orientation, Attributes};
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub fn Separator(
   #[prop(optional)] orientation: Option<MaybeSignal<Orientation>>,
   #[prop(optional)] decorative: Option<MaybeSignal<bool>>,

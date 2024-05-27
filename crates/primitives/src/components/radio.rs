@@ -21,7 +21,8 @@ struct RadioContextValue {
   disabled: Signal<bool>,
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub fn Radio(
   value: Signal<String>,
   #[prop(optional)] checked: Option<MaybeSignal<bool>>,
@@ -140,7 +141,8 @@ pub fn Radio(
   }
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub fn RadioIndicator(
   #[prop(optional)] force_mount: Option<MaybeSignal<bool>>,
   #[prop(optional)] node_ref: NodeRef<AnyElement>,
@@ -193,7 +195,8 @@ pub fn RadioIndicator(
   }
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 fn BubbleInput(
   checked: Signal<bool>,
   bubbles: Signal<bool>,

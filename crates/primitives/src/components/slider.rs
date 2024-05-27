@@ -39,7 +39,8 @@ struct SliderContextValue {
   orientation: Signal<Orientation>,
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub fn SliderRoot(
   #[prop(optional)] name: Option<MaybeSignal<String>>,
   #[prop(optional)] min: Option<MaybeSignal<f64>>,
@@ -332,7 +333,8 @@ struct SliderImplContextValue {
   dom_rect: StoredValue<Option<DomRect>>,
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 fn Slider(
   max: Signal<f64>,
   min: Signal<f64>,
@@ -424,7 +426,8 @@ struct SliderOrientationImplContextValue {
   slide_direction: Signal<SlideDirection>,
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 fn SliderHorizontal(
   max: Signal<f64>,
   min: Signal<f64>,
@@ -506,7 +509,8 @@ fn SliderHorizontal(
   children().into_view()
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 fn SliderVertical(
   max: Signal<f64>,
   min: Signal<f64>,
@@ -579,7 +583,8 @@ fn SliderVertical(
   children().into_view()
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 fn SliderImpl(
   max: Signal<f64>,
   min: Signal<f64>,
@@ -737,7 +742,8 @@ fn SliderImpl(
   }
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub fn SliderTrack(
   #[prop(attrs)] attrs: Attributes,
   #[prop(optional)] node_ref: NodeRef<AnyElement>,
@@ -769,7 +775,8 @@ pub fn SliderTrack(
   }
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub fn SliderRange(
   #[prop(attrs)] attrs: Attributes,
   #[prop(optional)] node_ref: NodeRef<AnyElement>,
@@ -845,7 +852,8 @@ pub fn SliderRange(
   }
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub fn SliderThumb(
   #[prop(optional)] name: Option<Signal<String>>,
   #[prop(attrs)] attrs: Attributes,
@@ -1047,7 +1055,8 @@ pub fn SliderThumb(
   }
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 fn BubbleInput(name: Signal<Option<String>>, value: Signal<f64>) -> impl IntoView {
   let node_ref = NodeRef::<Input>::new();
   let prev_value = create_previous(Signal::derive(move || value.get()));

@@ -31,7 +31,8 @@ struct CheckboxValueContext {
   disabled: Signal<Option<bool>>,
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub fn CheckboxRoot(
   #[prop(optional)] as_child: Option<bool>,
   #[prop(optional)] required: Option<MaybeSignal<bool>>,
@@ -208,7 +209,8 @@ pub fn CheckboxRoot(
   }
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub fn CheckboxIndicator(
   #[prop(optional)] force_mount: Option<MaybeSignal<bool>>,
   #[prop(attrs)] attrs: Attributes,
@@ -265,7 +267,8 @@ pub fn CheckboxIndicator(
   }
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 fn BubbleInput(
   checked: Signal<CheckedState>,
   control: NodeRef<AnyElement>,

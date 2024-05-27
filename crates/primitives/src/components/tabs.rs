@@ -32,7 +32,8 @@ pub enum ActivationMode {
   Manual,
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub fn TabsRoot(
   #[prop(optional)] value: Option<MaybeSignal<String>>,
   #[prop(optional)] default_value: Option<MaybeSignal<String>>,
@@ -94,7 +95,8 @@ pub fn TabsRoot(
   }
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub fn TabsList(
   #[prop(optional)] should_loop: Option<MaybeSignal<bool>>,
 
@@ -132,7 +134,8 @@ pub fn TabsList(
   }
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub fn TabsTrigger(
   #[prop(optional)] value: MaybeSignal<String>,
   #[prop(optional)] disabled: Option<MaybeSignal<bool>>,
@@ -247,7 +250,8 @@ pub fn TabsTrigger(
   }
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub fn TabsContent(
   #[prop(optional)] value: MaybeSignal<String>,
   #[prop(optional)] force_mount: Option<MaybeSignal<bool>>,

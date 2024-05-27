@@ -9,7 +9,8 @@ pub struct AvatarContextValue {
   on_image_loading_status_change: Callback<ImageLoadingStatus>,
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub fn AvatarRoot(#[prop(attrs)] attrs: Attributes, children: Children) -> impl IntoView {
   let (image_loading_status, set_image_loading_status) = create_signal(ImageLoadingStatus::Idle);
 
@@ -27,7 +28,8 @@ pub fn AvatarRoot(#[prop(attrs)] attrs: Attributes, children: Children) -> impl 
   }
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub fn AvatarImage(
   #[prop(optional)] on_loading_status_change: Option<Callback<ImageLoadingStatus>>,
   #[prop(attrs)] attrs: Attributes,
@@ -65,7 +67,8 @@ pub fn AvatarImage(
   }
 }
 
-#[component]
+#[cfg_attr(feature="islands", island)]
+#[cfg_attr(not(feature="islands"), component)]
 pub fn AvatarFallback(
   #[prop(optional)] delay_ms: Option<i32>,
   #[prop(attrs)] attrs: Attributes,
