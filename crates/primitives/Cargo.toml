@@ -25,7 +25,7 @@ web-sys = { version = "0.3.65", features = ["CustomEventInit", "EventInit"] }
 serde = {version = "1.0.203", features = ["derive"], optional = true}
 
 [features]
-islands=["dep:serde"]
+islands=["dep:serde", "leptos/experimental-islands"]
 csr = ["leptos/csr"]
 ssr = ["leptos/ssr", "leptos-use/ssr"]
 hydrate = ["leptos/hydrate"]
